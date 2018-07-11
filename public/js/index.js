@@ -9,10 +9,10 @@ socket.on('connect', function () {
     //     text: 'Dummy text placed here.'
     // });
 
-    socket.emit('createMessage', {
-        from: 'Human 02',
-        text: 'Dummy text placed here.'
-    });
+    // socket.emit('createMessage', {
+    //     from: 'Human 02',
+    //     text: 'Dummy text placed here.'
+    // });
 });
 
 socket.on('disconnect', function () {

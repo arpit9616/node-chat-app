@@ -21,18 +21,23 @@ io.on('connection', (socket) => {
     //     createdAt: 72465683
     // });
 
-    socket.emit('newMessage', {
-        from: 'Human 01',
-        text: 'Sample text placed here.',
-        createdAt: 72465683
-    });
+    // socket.emit('newMessage', {
+    //     from: 'Human 01',
+    //     text: 'Sample text placed here.',
+    //     createdAt: 72465683
+    // });
 
     // socket.on('createEmail', (newEmail) => {
     //     console.log('createEmail', newEmail);
     // });
 
-    socket.on('createMessage', (newMessage) => {
-        console.log('createMessage', newMessage);
+    socket.on('createMessage', (message) => {
+        console.log('createMessage', message);
+        io.emit('newMessage', {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        });
     });
 
     socket.on('disconnect', () => {
